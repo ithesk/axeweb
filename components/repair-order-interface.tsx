@@ -1001,3 +1001,7 @@ export function RepairOrderInterfaceComponent() {
     </div>
   )
 }
+
+function setPhone(phoneNumber: string) {
+  throw new Error('Function not implemented.')
+}
