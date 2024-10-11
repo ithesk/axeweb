@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useCallback  } from 'react'
-import { Phone, MessageCircle, ArrowLeft, Send, AlertTriangle, CheckCircle, 
+import {  MessageCircle, ArrowLeft, Send, AlertTriangle, CheckCircle, 
   Wrench, ClipboardList, Receipt, Lock,  Smartphone, MessageSquare, Edit3, Clock, RefreshCw, User, Loader2, 
   ChevronRight, Wifi, Radio, Camera, TouchpadIcon, Focus, Plug, Download, Sun, Mic } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -105,37 +105,7 @@ const BatteryIndicator: React.FC<{ percentage: number }> = ({ percentage }) => {
   )
 }
 
-const EvaluationChart: React.FC<{ evaluation: { category: string; score: number }[] }> = ({ evaluation }) => {
-  return (
-    <div className="grid grid-cols-2 gap-4">
-      {evaluation.map((item, index) => (
-        <div key={index} className="flex flex-col items-center">
-          <div className="text-sm font-medium text-blue-800 mb-1">{item.category}</div>
-          <div className="relative w-20 h-20">
-            <svg className="w-full h-full" viewBox="0 0 36 36">
-              <circle cx="18" cy="18" r="16" fill="none" stroke="#E5E7EB" strokeWidth="3" />
-              <motion.circle
-                cx="18"
-                cy="18"
-                r="16"
-                fill="none"
-                stroke="#3B82F6"
-                strokeWidth="3"
-                strokeDasharray={`${item.score * 10}, 100`}
-                initial={{ strokeDashoffset: 100 }}
-                animate={{ strokeDashoffset: 100 - item.score * 10 }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              />
-            </svg>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-blue-800">
-              {item.score}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
+
 
 const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> = ({ onAuthenticate }) => {
   const [phone, setPhone] = useState('')
