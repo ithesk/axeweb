@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle2, XCircle, Smartphone, Battery, Lock, Wifi, Radio, Camera, TouchpadIcon } from 'lucide-react'
+import { CheckCircle2, XCircle } from 'lucide-react'
 
 interface DeviceFunction {
   name: string
