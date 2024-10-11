@@ -1,8 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle2, XCircle } from 'lucide-react'
+import { CheckCircle2, XCircle, Smartphone } from 'lucide-react'
 
 interface DeviceFunction {
   name: string
@@ -24,21 +23,19 @@ interface DeviceDetailsProps {
 
 export default function DeviceDetailsCard({
   customerName = '',
-  orderNumber,
   deviceModel,
   deviceStatus,
   imei,
   initialBattery,
   password,
-  powerstate,
   functions = []
 }: DeviceDetailsProps) {
   const getInitials = (name: string) => {
     return name.split(' ').map(n => n[0]).join('').toUpperCase()
   }
 
-  const displayName = customerName || 'Cliente'
-  const initials = customerName ? getInitials(customerName) : 'C'
+
+
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4 space-y-4">

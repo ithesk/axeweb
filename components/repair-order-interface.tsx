@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState, useEffect, useCallback  } from 'react'
-import { Phone, Battery, Settings, MessageCircle, ArrowLeft, Send, AlertTriangle, CheckCircle, 
-  Wrench, ClipboardList, Receipt, Lock, X, Smartphone, MessageSquare, Edit3, Clock, RefreshCw, User, Loader2, 
+import { Phone, MessageCircle, ArrowLeft, Send, AlertTriangle, CheckCircle, 
+  Wrench, ClipboardList, Receipt, Lock,  Smartphone, MessageSquare, Edit3, Clock, RefreshCw, User, Loader2, 
   ChevronRight, Wifi, Radio, Camera, TouchpadIcon, Focus, Plug, Download, Sun, Mic } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
