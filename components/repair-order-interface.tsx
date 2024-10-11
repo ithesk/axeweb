@@ -761,16 +761,22 @@ const AuthorizationPage: React.FC<{ orderData: RepairOrderData; onBack: () => vo
   const [lastPoint, setLastPoint] = useState<{ x: number; y: number } | null>(null)
 
   React.useEffect(() => {
-    const canvas = canvasRef.current
+    const canvas = canvasRef.current;
     if (canvas) {
-      const ctx = canvas.getContext('2d')
+      const ctx = canvas.getContext('2d');
       if (ctx) {
-        ctx.lineWidth = 2
-        ctx.lineCap = 'round'
-        ctx.strokeStyle = '#3b82f6'
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Aquí puedes usar la firma para dibujar en el canvas si es necesario
+        if (signature) {
+          const img = new Image();
+          img.src = signature;
+          img.onload = () => {
+            ctx.drawImage(img, 0, 0);
+          };
+        }
       }
     }
-  }, [])
+  }, [signature]);
 
   const startDrawing = (event: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     setIsDrawing(true)
@@ -892,7 +898,7 @@ export function RepairOrderInterfaceComponent() {
   const [orders, setOrders] = useState<RepairOrderData[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [phone, setPhone] = useState('')
+  // const [phone, setPhone] = useState('')
 
   const fetchOrders = async (phoneNumber: string) => {
     setIsLoading(true)
