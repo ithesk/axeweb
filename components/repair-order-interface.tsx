@@ -900,7 +900,7 @@ export function RepairOrderInterfaceComponent() {
   const [orders, setOrders] = useState<RepairOrderData[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  // const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState('')
 
   const fetchOrders = async (phoneNumber: string) => {
     setIsLoading(true)
