@@ -14,7 +14,7 @@ interface DeviceDetailsProps {
   deviceModel: string
   deviceStatus: string
   imei: string
-  initialBattery: string
+  initialBattery: string | number;
   password: string
   powerstate: string
   functions?: DeviceFunction[]
