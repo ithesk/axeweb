@@ -455,16 +455,16 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
   const StateIcon = stateConfig[data.state].icon
 
   const deviceFunctions = [
-    { name: 'Face ID', status: data.faceid, icon: <Smartphone size={20} /> },
-    { name: 'Cargado', status: data.charging, icon: <Plug size={20} /> },
-    { name: 'Camara Frontal', status: data.camerafront, icon: <Focus size={20} /> },
-    { name: 'Wi-Fi', status: data.wifi, icon: <Wifi size={20} /> },
-    { name: 'Señal', status: data.signal, icon: <Radio size={20} /> },
-    { name: 'Cámara', status: data.camera, icon: <Camera size={20} /> },
-    { name: 'Pantalla', status: data.screen, icon: <Smartphone size={20} /> },
-    { name: 'Touch', status: data.touch, icon: <TouchpadIcon size={20} /> },
-    { name: 'True Tone', status: data.truetone, icon: <Sun size={20} /> },
-    { name: 'Micrófono', status: data.microphone, icon: <Mic size={20} /> },
+      { name: 'Face ID', status: data.faceid === 'true', icon: <Smartphone size={20} /> },
+      { name: 'Cargado', status: data.charging === 'true', icon: <Plug size={20} /> },
+      { name: 'Camara Frontal', status: data.camerafront === 'true', icon: <Focus size={20} /> },
+      { name: 'Wi-Fi', status: data.wifi === 'true', icon: <Wifi size={20} /> },
+      { name: 'Señal', status: data.signal === 'true', icon: <Radio size={20} /> },
+      { name: 'Cámara', status: data.camera === 'true', icon: <Camera size={20} /> },
+      { name: 'Pantalla', status: data.screen === 'true', icon: <Smartphone size={20} /> },
+      { name: 'Touch', status: data.touch === 'true', icon: <TouchpadIcon size={20} /> },
+      { name: 'True Tone', status: data.truetone === 'true', icon: <Sun size={20} /> },
+      { name: 'Micrófono', status: data.microphone === 'true', icon: <Mic size={20} /> },
   ]
 
 
