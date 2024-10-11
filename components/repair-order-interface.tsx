@@ -1002,6 +1002,4 @@ export function RepairOrderInterfaceComponent() {
   )
 }
 
-function setPhone(phoneNumber: string) {
-  throw new Error('Function not implemented.')
-}
+
