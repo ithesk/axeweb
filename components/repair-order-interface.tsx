@@ -46,6 +46,7 @@ interface RepairOrderData {
   camerafront: string
   truetone: string
   microphone: string
+  initialBattery: string;
   imei: string
   device_details: {
     imei: string
