@@ -898,74 +898,46 @@ export function RepairOrderInterfaceComponent() {
   const [selectedOrder, setSelectedOrder] = useState<RepairOrderData | null>(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [orders, setOrders] = useState<RepairOrderData[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState(''); // Definir correctamente el estado phone
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchOrders = async (phoneNumber: string) => {
-    setIsLoading(true)
-    setError(null)
+    setIsLoading(true);
+    setError(null);
     try {
       const response = await fetch('https://test.ithesk.com/api/get-repair-orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ phone: phoneNumber })
-      })
+        body: JSON.stringify({ phone: phoneNumber }),
+      });
       if (!response.ok) {
-        throw new Error('Failed to fetch repair orders')
+        throw new Error('Failed to fetch repair orders');
       }
-      const data = await response.json()
-      console.log('Repair orders:', data)
-      setOrders(data.orders)
-      console.log('Orders:', orders)
-      setIsLoading(false)
+      const data = await response.json();
+      console.log('Repair orders:', data);
+      setOrders(data.orders);
+      console.log('Orders:', orders);
     } catch (err) {
-      console.error('Error fetching repair orders:', err)
-      setError('Failed to load repair orders. Please try again later.')
-      setIsLoading(false)
+      console.error('Error fetching repair orders:', err);
+      setError('Failed to load repair orders. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
 
   const handleAuthentication = async (phoneNumber: string) => {
-    setPhone(phoneNumber)
-    setIsAuthenticated(true)
-    await fetchOrders(phoneNumber)
-  }
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-        <Card className="w-full max-w-md">
-          <CardContent className="flex items-center justify-center p-6">
-            <div className="text-blue-500">Cargando órdenes de reparación...</div>
-          </CardContent>
-        </Card>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-        <Card className="w-full max-w-md">
-          <CardContent className="p-6">
-            <Alert variant="destructive">
-              <AlertTriangle className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          </CardContent>
-        </Card>
-      </div>
-    )
-  }
+    setPhone(phoneNumber); // Usar setPhone aquí
+    setIsAuthenticated(true);
+    await fetchOrders(phoneNumber);
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center p-4 relative">
-      <AnimatePresence mode="wait">
-        {!isAuthenticated ? (
+    <div className="min-h-screen relative">
+      <AnimatePresence>
+        {isAuthenticated ? (
           <AuthenticationPage key="auth" onAuthenticate={handleAuthentication} />
         ) : showInvoice && selectedOrder ? (
           <InvoicePage key="invoice" orderData={selectedOrder} onBack={() => setShowInvoice(false)} />
@@ -999,7 +971,6 @@ export function RepairOrderInterfaceComponent() {
         </motion.div>
       )}
     </div>
-  )
+  );
 }
-
 
