@@ -10,7 +10,7 @@ interface DeviceFunction {
 }
 
 interface DeviceDetailsProps {
-  orderNumber: string
+  orderNumber?: string
   deviceModel: string
   deviceStatus: string
   imei: string
