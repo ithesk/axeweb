@@ -193,13 +193,13 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
       console.log('Código de verificación:', newCode)
       if (!response.ok) {
         throw new Error('Error al enviar el código de verificación')
-        console.log(response)
+        // console.log(response)
       }
       const data = await response.json()
       console.log('data:', data)
       if (data.status === 'success') {
         setSuccess('Se ha enviado un código de verificación a tu número de WhatsApp.')
-        console.log('fallo codigo :', newCode)
+        // console.log('fallo codigo :', newCode)
         setStep('code')
       } else {
         throw new Error(data.message || 'Error al enviar el código de verificación')
@@ -207,7 +207,7 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
         
       }
     } catch (error) {
-      console.error('Error:', error)
+      // console.error('Error:', error)
       setError('No se pudo enviar el código. Por favor, intenta nuevamente.')
     } finally {
       setIsLoading(false)
@@ -440,7 +440,7 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
       })
       if (response.ok) {
         alert('Mensaje enviado con éxito')
-        console.log('Mensaje enviado con éxito')
+        // console.log('Mensaje enviado con éxito')
         setMessage('')
       } else {
         console.error('Error:', response)
@@ -916,7 +916,7 @@ export function RepairOrderInterfaceComponent() {
       const data = await response.json();
       setOrders(data.orders);
     } catch (err) {
-      console.error('Error fetching repair orders:', err);
+      // console.error('Error fetching repair orders:', err);
     }
   };
 
