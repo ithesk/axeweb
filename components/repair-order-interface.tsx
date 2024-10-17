@@ -203,7 +203,7 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
         setStep('code')
       } else {
         throw new Error(data.message || 'Error al enviar el código de verificación')
-        console.log('Error al enviar el código de verificación:', data.message)
+        console.log('Error al enviar el código de verificación:')
         
       }
     } catch (error) {
@@ -420,11 +420,25 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
   const [showPhone, setShowPhone] = useState(false)
   const [message, setMessage] = useState('')
   const [showDeviceDetails, setShowDeviceDetails] = useState(false)
+  const [toast, setToast] = useState<ToastProps | null>(null)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
 
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => {
+        setToast(null)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [toast])
+
+  const showToast = (message: string, type: 'success' | 'error') => {
+    setToast({ message, type })
+  }
 
   const sendWhatsAppMessage = async () => {
-    console.log('Enviando mensaje:', message)
+    // console.log('Enviando mensaje:', message)
     try {
       const response = await fetch('https://axe.ithesk.com/api/send-message', {
         method: 'POST',
