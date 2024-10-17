@@ -703,7 +703,7 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
                 PDF
               </Button>
             )}
-              <Button 
+            <Button 
                 variant="outline" 
                 className="bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all duration-300"
                 onClick={() => setShowAuthorization(true)}
@@ -717,6 +717,7 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
       </Card>
       </div>
     </div>
+    {toast && <Toast message={toast.message} type={toast.type} />}
     </motion.div>
   )
 }
