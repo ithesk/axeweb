@@ -207,7 +207,7 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
         
       }
     } catch (error) {
-      console.error('Error:', error)
+      console.error('Error: data', error)
       setError('No se pudo enviar el código. Por favor, intenta nuevamente.')
     } finally {
       setIsLoading(false)
