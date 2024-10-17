@@ -426,7 +426,7 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
   const sendWhatsAppMessage = async () => {
     console.log('Enviando mensaje:', message)
     try {
-      const response = await fetch('http://192.168.2.145:8078/api/send-message', {
+      const response = await fetch('https://axe.ithesk.com/api/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
