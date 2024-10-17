@@ -66,6 +66,19 @@ interface RepairOrderData {
   }[]
 }
 
+interface ToastProps {
+  message: string
+  type: 'success' | 'error'
+}
+
+const Toast: React.FC<ToastProps> = ({ message, type }) => {
+  return (
+    <div className={`fixed bottom-4 right-4 p-4 rounded-md shadow-md ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} text-white`}>
+      {message}
+    </div>
+  )
+}
+
 const stateConfig = {
   draft: { label: 'Borrador', icon: AlertTriangle, color: 'bg-gray-200 text-gray-800' },
   confirmed: { label: 'Confirmado', icon: CheckCircle, color: 'bg-blue-200 text-blue-800' },
