@@ -207,7 +207,7 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
         
       }
     } catch (error) {
-      // console.error('Error:', error)
+       console.error('Error:', error)
       setError('No se pudo enviar el código. Por favor, intenta nuevamente.')
     } finally {
       setIsLoading(false)
@@ -916,7 +916,7 @@ export function RepairOrderInterfaceComponent() {
       const data = await response.json();
       setOrders(data.orders);
     } catch (err) {
-      // console.error('Error fetching repair orders:', err);
+      console.error('Error fetching repair orders:', err);
     }
   };
 
