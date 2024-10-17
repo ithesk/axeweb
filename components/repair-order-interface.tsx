@@ -423,7 +423,6 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
   const [toast, setToast] = useState<ToastProps | null>(null)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-
   useEffect(() => {
     if (toast) {
       const timer = setTimeout(() => {
@@ -609,7 +608,7 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
                   <span className="text-blue-800 font-medium">{data.user_id}</span>
                 </div>
                 <div className="flex space-x-2">
-                  <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}> {/* Updated Dialog */}
                     <DialogTrigger asChild>
                       <Button variant="outline" size="icon" className="text-blue-500 hover:text-blue-600 hover:bg-blue-100 transition-colors duration-300">
                         <MessageCircle className="h-4 w-4" />
