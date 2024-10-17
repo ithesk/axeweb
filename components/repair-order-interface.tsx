@@ -426,29 +426,30 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
   const sendWhatsAppMessage = async () => {
     console.log('Enviando mensaje:', message)
     try {
-      const response = await fetch('https://test.ithesk.com/send-message', {
+      const response = await fetch('http://192.168.2.145:8078/api/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          phone: data.partner_phone,
-          message: message,
-          mediaUrl: "",
-        }),
-        
+          phone: 18092742666,
+          message: `El cliente ${data.partner_name} de reparacion ${data.id} ha enviado un mensaje: ${message}`,
+          url: '',
+        }), 
       })
       if (response.ok) {
-        alert('Mensaje enviado con éxito')
-        // console.log('Mensaje enviado con éxito')
+        console.log(message)
+        showToast('Tu mensaje ha sido enviado a nuestro técnico', 'success')
+        console.log('Mensaje enviado con éxito')
         setMessage('')
+        setIsDialogOpen(false)
       } else {
         console.error('Error:', response)
-        alert('Error al enviar el mensaje')
+        showToast('Error al enviar el mensaje', 'error')
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Error al enviar el mensaje')
+      showToast('Error al enviar el mensaje', 'error')
     }
   }
 
