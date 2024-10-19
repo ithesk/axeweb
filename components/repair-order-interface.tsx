@@ -931,7 +931,7 @@ export function RepairOrderInterfaceComponent() {
 
   const fetchOrders = async (phoneNumber: string) => {
     try {
-      const response = await fetch('https://test.ithesk.com/api/get-repair-orders', {
+      const response = await fetch('https://axe.ithesk.com/api/get-repair-orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
