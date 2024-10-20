@@ -448,7 +448,7 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type })
   }
-
+   // Función para enviar un mensaje por WhatsApp
   const sendWhatsAppMessage = async () => {
     // console.log('Enviando mensaje:', message)
     try {
