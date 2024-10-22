@@ -80,6 +80,8 @@ const Toast: React.FC<ToastProps> = ({ message, type }) => {
   )
 }
 
+
+
 const stateConfig = {
   draft: { label: 'Borrador', icon: AlertTriangle, color: 'bg-gray-200 text-gray-800' },
   confirmed: { label: 'Confirmado', icon: CheckCircle, color: 'bg-blue-200 text-blue-800' },
@@ -277,7 +279,9 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
       <div className="w-full max-w-md">
         <div className="absolute top-4 right-4 bg-black text-white px-4 py-2 rounded">
           <span className="font-bold text-lg">ITHESK</span>
+          <Analytics />
         </div>
+
     <Card className="w-full max-w-md">
       <CardHeader>
         <div className="flex items-center justify-between">
