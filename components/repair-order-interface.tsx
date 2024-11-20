@@ -206,7 +206,7 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
           url: '',
         }),
       })
-      console.log('Código de verificación:', newCode)
+      // console.log('Código de verificación:', newCode)
       if (!response.ok) {
         throw new Error('Error al enviar el código de verificación')
         // console.log(response)
