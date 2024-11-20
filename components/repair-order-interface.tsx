@@ -206,13 +206,13 @@ const AuthenticationPage: React.FC<{ onAuthenticate: (phone: string) => void }> 
           url: '',
         }),
       })
-      // console.log('Código de verificación:', newCode)
+       console.log('Código de verificación:', newCode)
       if (!response.ok) {
         throw new Error('Error al enviar el código de verificación')
         // console.log(response)
       }
       const data = await response.json()
-      console.log('data:', data)
+      // console.log('data:', data)
       if (data.status === 'success') {
         setSuccess('Se ha enviado un código de verificación a tu número de WhatsApp.')
         // console.log('fallo codigo :', newCode)
@@ -469,9 +469,9 @@ const MainPage: React.FC<{ data: RepairOrderData; setShowInvoice: (show: boolean
         }), 
       })
       if (response.ok) {
-        console.log(message)
+        // console.log(message)
         showToast('Tu mensaje ha sido enviado a nuestro técnico', 'success')
-        console.log('Mensaje enviado con éxito')
+        // console.log('Mensaje enviado con éxito')
         setMessage('')
         setIsDialogOpen(false)
       } else {
